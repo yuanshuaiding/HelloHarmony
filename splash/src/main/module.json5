@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "splash",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "SplashAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "SplashAbility",
+        "srcEntry": "./ets/splashability/SplashAbility.ts",
+        "description": "$string:ability_desc",
+        "icon": "$media:icon",
+        "label": "$string:ability_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
