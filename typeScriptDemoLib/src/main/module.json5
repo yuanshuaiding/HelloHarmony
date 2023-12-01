@@ -1,0 +1,10 @@
+{
+  "module": {
+    "name": "typeScriptDemoLib",
+    "type": "har",
+    "deviceTypes": [
+      "default",
+      "tablet"
+    ]
+  }
+}

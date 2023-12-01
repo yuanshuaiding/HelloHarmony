@@ -1,7 +1,5 @@
-import router from '@ohos.router'
-@Entry
 @Component
-struct Index {
+export struct MainPage {
   @State message: string = 'Hello World'
 
   build() {
@@ -10,9 +8,6 @@ struct Index {
         Text(this.message)
           .fontSize(50)
           .fontWeight(FontWeight.Bold)
-          .onClick(()=>{
-            console.debug("hehehe")
-          })
       }
       .width('100%')
     }
