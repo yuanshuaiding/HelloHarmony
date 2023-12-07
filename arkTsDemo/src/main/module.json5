@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "arkTsDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "ArkTsDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "ArkTsDemoAbility",
+        "srcEntry": "./ets/arktsdemoability/ArkTsDemoAbility.ts",
+        "description": "$string:ArkTsDemoAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:ArkTsDemoAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

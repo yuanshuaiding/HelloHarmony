@@ -38,6 +38,18 @@
     {
       "name": "typeScriptDemoLib",
       "srcPath": "./typeScriptDemoLib"
+    },
+    {
+      "name": "arkTsDemo",
+      "srcPath": "./arkTsDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }
