@@ -1,10 +1,30 @@
 import router from '@ohos.router'
+import FaultLogger from '@ohos.faultLogger'
 import { FruitBean } from '../beans/FruitBean'
+import promptAction from '@ohos.promptAction'
 
 @Entry
 @Component
 struct Index {
+  private clickBackTime: number = 0
   @State message: string = 'Hello ArkTs'
+
+  onBackPress() {
+    //1秒内连续两次点击返回才能退出应用限制
+    if (this.showDoubleClickToast()) {
+      promptAction.showToast({
+        message: "再次点击退出应用",
+        duration: 1000,
+      })
+      this.clickBackTime = new Date().getTime()
+      return true
+    }
+    return false
+  }
+
+  showDoubleClickToast(): boolean {
+    return new Date().getTime() - this.clickBackTime > 4500
+  }
 
   build() {
     Stack() {
@@ -39,7 +59,7 @@ struct 排行榜 {
   build() {
     Column() {
       // 导航栏
-      TitleBar({ title: '排行榜', dataRefresh: $dataChange})
+      TitleBar({ title: '排行榜', dataRefresh: $dataChange })
       //二级标题栏
       SubTitleBar()
       //列表
@@ -48,8 +68,8 @@ struct 排行榜 {
       } else {
         FruitList({ fruits: this.fruits2 })
       }
-
-
+      //使用@Builder快速构建列表
+      FruitList2({ fruits: this.fruits1 })
     }.width('100%')
     .height('100%')
   }
@@ -81,7 +101,7 @@ struct TitleBar {
         .height(20)
         .margin({ left: 10, right: 10 })
         .onClick(() => {
-          this.dataRefresh=!this.dataRefresh
+          this.dataRefresh = !this.dataRefresh
         })
     }
     .width('100%')
@@ -139,3 +159,37 @@ struct FruitComponentItem {
     })
   }
 }
+
+@Component
+struct FruitList2 {
+  fruits: Array<FruitBean> = []
+
+  build() {
+    Column() {
+      Text("使用@Builder快速构建列表").align(Alignment.Start)
+      ForEach(this.fruits, (item, index) => {
+        this.FruitComponentItemBuilder(item, index)
+      })
+    }
+    .width('100%')
+  }
+
+  //@Builder装饰的方法用于定义组件的声明式UI描述，在一个自定义组件内快速生成多个布局内容。
+  @Builder FruitComponentItemBuilder(fruit: FruitBean, index: number) {
+    Row() {
+      Text((index + 1).toString())
+        .width('20%')
+        .textAlign(TextAlign.Center)
+        .backgroundColor(fruit.Selected ? 0xaaccdd : 0xe2e2e2)
+      Text(fruit.Name).layoutWeight(1)
+      Text(fruit.Tickets.toString()).width('30%').textAlign(TextAlign.Center)
+    }
+    .width('100%')
+    .height(30)
+    .backgroundColor(0xe2e2e2)
+    .onClick(() => {
+      fruit.Selected = !fruit.Selected
+    })
+  }
+}
+
