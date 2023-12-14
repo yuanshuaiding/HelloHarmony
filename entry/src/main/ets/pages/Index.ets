@@ -6,6 +6,7 @@ import { SECOND_PAGE } from '../common/Const'
 @Component
 struct Index {
   @State message: string = 'Hello World'
+  @State message2:string = ''
   private msg: string = '这是Index页面的参数'
 
   build() {
@@ -28,11 +29,38 @@ struct Index {
               params: {
                 hi: this.msg
               }
-            })
+            },router.RouterMode.Single)
           })
+
+        Blank()
+
+        Text(this.message2)
+          .fontSize(20)
       }
       .width('100%')
     }
     .height('100%')
+  }
+
+  // 页面显示
+  onPageShow() {
+    console.log('page1……onPageShow')
+    //可以在此生命周期获取参数
+    this.message2=router.getParams()?.['hello']
+  }
+  // 页面隐藏
+  onPageHide() {
+    console.log('page1……onPageHide')
+  }
+  // 页面返回
+  onBackPress() {
+    console.log('page1……onBackPress')
+  }
+  aboutToAppear() {
+    console.log('组件本身……aboutToAppear')
+  }
+  // 组件销毁时触发：删除  移出
+  aboutToDisappear() {
+    console.log('组件本身……aboutToDisappear')
   }
 }
