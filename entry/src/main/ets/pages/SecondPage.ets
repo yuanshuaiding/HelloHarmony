@@ -23,6 +23,8 @@ struct SecondPage {
         //返回
         Button('返回')
           .onClick(() => {
+            //提示是否要返回
+            router.showAlertBeforeBackPage({message:'是否要返回上一个页面？'})
             router.back({ url: PAGE_INDEX, params: {
               hello:"Second页面返回的数据"
             } })
