@@ -1,6 +1,7 @@
 {
   "src": [
     "pages/Index",
-    "pages/SecondPage"
+    "pages/SecondPage",
+    "pages/abilityStartMode/DetailPage"
   ]
 }

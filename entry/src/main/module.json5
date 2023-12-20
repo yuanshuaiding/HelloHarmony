@@ -14,13 +14,14 @@
     "abilities": [
       {
         "name": "EntryAbility",
-        "srcEntry": "./ets/entryability/EntryAbility.ts",
+        "srcEntry": "./ets/entryability/EntryAbility.ets",
         "description": "$string:EntryAbility_desc",
         "icon": "$media:icon",
         "label": "$string:EntryAbility_label",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background",
         "exported": true,
+        "launchType": "singleton",
         "skills": [
           {
             "entities": [
@@ -33,11 +34,12 @@
         ]
       },
       {
-        "name": "EntryAbility2",
-        "srcEntry": "./ets/entryability/EntryAbility2.ts",
+        "name": "MySingletonAbility",
+        "srcEntry": "./ets/entryability/MySingletonAbility.ets",
         "description": "$string:EntryAbility2_desc",
         "icon": "$media:icon",
         "label": "$string:EntryAbility2_label",
+        "launchType": "singleton",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background"
       }
