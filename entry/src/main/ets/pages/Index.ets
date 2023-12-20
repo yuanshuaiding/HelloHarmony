@@ -38,9 +38,19 @@ struct Index {
         Text(this.message2)
           .fontSize(20)
 
+        Text('单例模式')
         Button('Singleton模式启动另一个UIAbility')
           .onClick(() => {
             startAbilityMode('MySingletonAbility', { hi: "Singleton模式启动另一个UIAbility" })
+          })
+
+
+        Blank()
+
+        Text('多例模式')
+        Button('standard模式启动另一个UIAbility')
+          .onClick(() => {
+            startAbilityMode('MyMultitonAbility', { hi: "standard模式启动另一个UIAbility" })
           })
       }
       .width('100%')

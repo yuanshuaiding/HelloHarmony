@@ -19,6 +19,14 @@
     {
       "name": "EntryAbility2_label",
       "value": "label"
+    },
+    {
+      "name": "MyMultitonAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "MyMultitonAbility_label",
+      "value": "label"
     }
   ]
 }

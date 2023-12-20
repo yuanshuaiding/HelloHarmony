@@ -42,6 +42,16 @@
         "launchType": "singleton",
         "startWindowIcon": "$media:icon",
         "startWindowBackground": "$color:start_window_background"
+      },
+      {
+        "name": "MyMultitonAbility",
+        "srcEntry": "./ets/mymultitonability/MyMultitonAbility.ts",
+        "description": "$string:MyMultitonAbility_desc",
+        "icon": "$media:icon",
+        "launchType": "standard",
+        "label": "$string:MyMultitonAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background"
       }
     ]
   }
