@@ -1,10 +1,10 @@
 {
+  "license": "",
+  "devDependencies": {},
+  "author": "",
   "name": "arkTsDemo",
-  "version": "1.0.0",
   "description": "This is a demo module for ArkTs practises.",
   "main": "",
-  "author": "",
-  "license": "",
+  "version": "1.0.0",
   "dependencies": {}
 }
-

@@ -1,6 +1,20 @@
 {
   "app": {
-    "signingConfigs": [],
+    "signingConfigs": [
+      {
+        "name": "default",
+        "type": "HarmonyOS",
+        "material": {
+          "certpath": "C:\\Users\\Eric\\.ohos\\config\\auto_debug_HelloHarmony_com.eric.example.helloharmony_70086200303043441.cer",
+          "storePassword": "0000001B6249F6D89C06EC415FE2027C4BFB866FE6BD5E35E54059DD34D029730CCC4B715BD23AF3D37803",
+          "keyAlias": "debugKey",
+          "keyPassword": "0000001BEA460481D868D87850F0907624AB54971CAFB12169EC5F2CE4B648D957AD97C85F73521AFC1B97",
+          "profile": "C:\\Users\\Eric\\.ohos\\config\\auto_debug_HelloHarmony_com.eric.example.helloharmony_70086200303043441.p7b",
+          "signAlg": "SHA256withECDSA",
+          "storeFile": "C:\\Users\\Eric\\.ohos\\config\\auto_debug_HelloHarmony_com.eric.example.helloharmony_70086200303043441.p12"
+        }
+      }
+    ],
     "compileSdkVersion": 9,
     "compatibleSdkVersion": 9,
     "products": [

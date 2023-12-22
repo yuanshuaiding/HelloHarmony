@@ -11,8 +11,8 @@ export function startAbilityMode(targetAbilityName: string, params: any) {
       parameters: params
     }
     try {
-      context.startAbility(want).catch((err) => {
-        hilog.debug(0x0000, "startAbilityMode", "startAbility failed,because err=" + JSON.stringify(err))
+      context.startAbility(want).then(() => {
+        hilog.debug(0x0000, "startAbilityMode", "startAbility success,targetAbilityName=${targetAbilityName}")
       })
     } catch (err) {
       hilog.debug(0x0000, "startAbilityMode", "startAbility failed,because err=" + JSON.stringify(err))
@@ -29,6 +29,7 @@ export function getContextData(): Want {
     let data = {
       want: null
     }
+    //通过event通讯获取UIAbility的数据
     context.eventHub.emit("getAbilityData", data)
     return data.want
   }

@@ -27,6 +27,14 @@
     {
       "name": "MyMultitonAbility_label",
       "value": "label"
+    },
+    {
+      "name": "MySpecifiedAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "MySpecifiedAbility_label",
+      "value": "label"
     }
   ]
 }

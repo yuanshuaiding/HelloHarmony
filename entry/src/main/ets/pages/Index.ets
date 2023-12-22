@@ -14,13 +14,14 @@ struct Index {
     Row() {
       Column() {
         Text(this.message)
-          .fontSize(50)
-          .fontWeight(FontWeight.Bold)
+          .fontSize(14)
+          .fontWeight(FontWeight.Lighter)
+          .fontColor(Color.Gray)
           .onClick(() => {
             console.debug("hehehe")
           })
 
-        Blank()
+        Blank().height(10)
 
         Button('带参数跳转到第二个页面')
           .onClick(() => {
@@ -33,10 +34,12 @@ struct Index {
             }, router.RouterMode.Single)
           })
 
-        Blank()
+        Blank().height(10)
 
         Text(this.message2)
           .fontSize(20)
+
+        Blank().height(10)
 
         Text('单例模式')
         Button('Singleton模式启动另一个UIAbility')
@@ -44,16 +47,35 @@ struct Index {
             startAbilityMode('MySingletonAbility', { hi: "Singleton模式启动另一个UIAbility" })
           })
 
-
-        Blank()
+        Blank().height(10)
 
         Text('多例模式')
         Button('standard模式启动另一个UIAbility')
           .onClick(() => {
             startAbilityMode('MyMultitonAbility', { hi: "standard模式启动另一个UIAbility" })
           })
+
+        Blank().height(10)
+
+        Text('指定实例模式')
+        Button("specified模式启动另一个UIAbility(新开页面)")
+          .onClick(() => {
+            //增加应该自定义参数，如myInstanceKey:'key1',用于区分UIAbility实例
+            startAbilityMode('MySpecifiedAbility', {
+              hi: "specified模式启动另一个UIAbility(新开页面)",
+              myInstanceKey: 'key1'
+            })
+          })
+        Button("specified模式启动另一个UIAbility(复用页面)").margin({ top: 5 })
+          .onClick(() => {
+            startAbilityMode('MySpecifiedAbility', {
+              hi: "specified模式启动另一个UIAbility(复用页面)",
+              myInstanceKey: 'key2'
+            })
+          })
       }
       .width('100%')
+      .alignItems(HorizontalAlign.Center)
     }
     .height('100%')
   }

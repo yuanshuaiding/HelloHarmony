@@ -1,18 +1,20 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
-
-export default class MyMultitonAbility extends UIAbility {
+import AbilityStage from '@ohos.app.ability.AbilityStage';
+import BaseUIAbility from '../common/BaseUIAbility';
+export default class MySpecifiedAbility extends BaseUIAbility {
   onCreate(want, launchParam) {
+    super.onCreate(want,launchParam)
+
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
-    this.context.eventHub.on("getAbilityData", (data) => {
-      data.want = want
-    })
   }
 
   onDestroy() {
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onDestroy');
   }
+
+
 
   onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability

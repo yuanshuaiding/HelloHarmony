@@ -4,6 +4,7 @@
     "type": "entry",
     "description": "$string:module_desc",
     "mainElement": "EntryAbility",
+    "srcEntry": "./ets/abilitystage/MyAbilityStage.ets",
     "deviceTypes": [
       "phone",
       "tablet"
@@ -45,12 +46,22 @@
       },
       {
         "name": "MyMultitonAbility",
-        "srcEntry": "./ets/mymultitonability/MyMultitonAbility.ts",
+        "srcEntry": "./ets/mymultitonability/MyMultitonAbility.ets",
         "description": "$string:MyMultitonAbility_desc",
         "icon": "$media:icon",
         "launchType": "standard",
         "label": "$string:MyMultitonAbility_label",
         "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background"
+      },
+      {
+        "name": "MySpecifiedAbility",
+        "srcEntry": "./ets/myspecifiedability/MySpecifiedAbility.ets",
+        "description": "$string:MySpecifiedAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:MySpecifiedAbility_label",
+        "startWindowIcon": "$media:icon",
+        "launchType": "specified",
         "startWindowBackground": "$color:start_window_background"
       }
     ]

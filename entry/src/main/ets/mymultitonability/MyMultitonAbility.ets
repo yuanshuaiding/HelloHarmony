@@ -3,8 +3,7 @@ import hilog from '@ohos.hilog';
 import window from '@ohos.window';
 import BaseUIAbility from '../common/BaseUIAbility';
 
-export default class MySingletonAbility extends BaseUIAbility {
-
+export default class MyMultitonAbility extends BaseUIAbility {
   onCreate(want, launchParam) {
     super.onCreate(want, launchParam)
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
