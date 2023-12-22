@@ -1,8 +1,7 @@
-import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
-import AbilityStage from '@ohos.app.ability.AbilityStage';
 import BaseUIAbility from '../common/BaseUIAbility';
+
 export default class MySpecifiedAbility extends BaseUIAbility {
   onCreate(want, launchParam) {
     super.onCreate(want,launchParam)

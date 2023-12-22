@@ -2,16 +2,13 @@ import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
 import common from '@ohos.app.ability.common';
+import BaseUIAbility from '../common/BaseUIAbility';
 
-export default class EntryAbility extends UIAbility {
-  private myAbility: common.UIAbilityContext
+export default class EntryAbility extends BaseUIAbility {
 
   onCreate(wanted, launchParam) {
+    super.onCreate(wanted,launchParam)
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onCreate');
-    this.myAbility = this.context
-    this.myAbility.eventHub.on("getAbilityData", (data) => {
-      data.want = wanted
-    })
   }
 
 

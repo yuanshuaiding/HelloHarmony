@@ -62,8 +62,8 @@ struct Index {
           .onClick(() => {
             //增加应该自定义参数，如myInstanceKey:'key1',用于区分UIAbility实例
             startAbilityMode('MySpecifiedAbility', {
-              hi: "specified模式启动另一个UIAbility(新开页面)",
-              myInstanceKey: 'key1'
+              hi: "specified模式启动另一个UIAbility(每次新开页面)",
+              myInstanceKey: `key1_${new Date().getTime()}`
             })
           })
         Button("specified模式启动另一个UIAbility(复用页面)").margin({ top: 5 })
