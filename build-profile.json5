@@ -64,6 +64,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "loginDemo",
+      "srcPath": "./loginDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }
