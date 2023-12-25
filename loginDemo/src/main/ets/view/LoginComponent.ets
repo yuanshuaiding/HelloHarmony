@@ -9,6 +9,7 @@ export struct LoginComponent {
   @StorageProp('isMinHeight') isMinHeight: boolean = false;
   @State userName: string = '';
   @State password: string = '';
+  private textController = new TextAreaController()
 
   build() {
     GridRow({
@@ -33,12 +34,18 @@ export struct LoginComponent {
         }
       }) {
         Column() {
-          TextInput({ placeholder: $r('app.string.username') })
+          TextInput({ placeholder: $r('app.string.username'), controller: this.textController })
             .width(CommonConstants.TEXT_INPUT_WIDTH_PERCENT)
             .height($r('app.float.text_input_height'))
             .placeholderColor($r('app.color.text_input_place_holder'))
-            .placeholderFont({ size: $r('app.float.text_input_font_size') })
+            .placeholderFont({
+              size: $r('app.float.text_input_font_size'),
+              weight: FontWeight.Medium,
+              family: 'cursive',
+              style: FontStyle.Italic
+            })
             .backgroundColor($r('app.color.login_input_text_background'))
+            .fontWeight(FontWeight.Bold)
             .fontSize($r('app.float.text_input_font_size'))
             .padding({ left: $r('app.float.username_padding_left') })
             .border({
@@ -68,6 +75,12 @@ export struct LoginComponent {
             .onChange((value: string) => {
               this.password = value;
             })
+
+          //测试设置光标位置
+          Button('光标位置放到账号第二个字母后', { type: ButtonType.Normal,stateEffect:true })
+            .onClick(() => {
+              this.textController.caretPosition(2)
+            })
         }
       }
 
@@ -92,9 +105,9 @@ export struct LoginComponent {
           .fontWeight(CommonConstants.LOGIN_TEXT_FONT_WEIGHT)
           .enabled(isLoginButtonClickable(this.userName, this.password))
           .fontColor(isLoginButtonClickable(this.userName, this.password) ?
-            Color.White : $r('app.color.login_font_normal'))
+          Color.White : $r('app.color.login_font_normal'))
           .backgroundColor(isLoginButtonClickable(this.userName, this.password) ?
-            $r('app.color.login_btn_enabled') : $r('app.color.login_btn_normal'))
+          $r('app.color.login_btn_enabled') : $r('app.color.login_btn_normal'))
           .onClick(() => {
             router.pushUrl({
               url: CommonConstants.MINE_PAGE_URL
