@@ -15,6 +15,10 @@ export struct CustomerListComponent {
             Row() {
               Text(contactItemInfo.title)
                 .fontSize($r('app.float.name_text_size'))
+                .fontStyle(FontStyle.Italic)
+                .textAlign(TextAlign.Center)
+                .maxLines(1)
+                .textOverflow({overflow:TextOverflow.Ellipsis})
                 .fontColor($r('app.color.text'))
               Blank()
               Text(contactItemInfo.summary)

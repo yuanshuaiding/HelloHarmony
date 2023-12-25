@@ -36,6 +36,8 @@ export struct PrivacyStatementComponent {
             .fontSize($r('app.float.statement_text_size'))
             .fontColor($r('app.color.problem_encountered_font'))
             .textAlign(TextAlign.Center)
+            .decoration({ type: TextDecorationType.Underline, color: Color.Red })
+            .fontStyle(FontStyle.Italic)
             .onClick(() => {
               router.pushUrl({
                 url: CommonConstants.CUSTOMER_SERVICE_PAGE_URL
@@ -46,6 +48,8 @@ export struct PrivacyStatementComponent {
             .fontSize($r('app.float.statement_text_size'))
             .fontColor($r('app.color.privacy_statement_font'))
             .textAlign(TextAlign.Center)
+            .fontStyle(FontStyle.Italic)
+            .decoration({ type: TextDecorationType.Underline, color: Color.Red })
             .onClick(() => {
               router.pushUrl({
                 url: CommonConstants.PRIVACY_PAGE_URL

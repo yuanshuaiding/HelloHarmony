@@ -1,0 +1,1 @@
+演示基础控件的使用，如Image、Text、TextInput、Button
