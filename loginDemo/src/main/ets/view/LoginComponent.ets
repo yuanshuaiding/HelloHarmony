@@ -142,6 +142,20 @@ export struct LoginComponent {
             });
           })
       }
+      GridCol({
+        span: {
+          sm: CommonConstants.BUTTON_SPAN_MD_BIG,
+          md: CommonConstants.BUTTON_SPAN_MD_BIG,
+          lg: CommonConstants.BUTTON_SPAN_MD_BIG
+        },
+        offset: {
+          sm: CommonConstants.BUTTON_SPAN_MD_BIG,
+          md: CommonConstants.BUTTON_SPAN_MD_BIG,
+          lg: CommonConstants.BUTTON_SPAN_MD_BIG
+        }
+      }) {
+        QRCode("https:www.hello.com").width(80).height(80)
+      }
     }
   }
 }
