@@ -31,6 +31,14 @@ struct Index {
             url: "pages/LazyListPage"
           })
         })
+
+        Button('Grid列表控件').margin({
+          top: '15vp'
+        }).onClick(() => {
+          router.pushUrl({
+            url: "pages/GridPage"
+          })
+        })
       }
       .width("100%")
       .height("100%")

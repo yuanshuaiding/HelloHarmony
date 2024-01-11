@@ -2,6 +2,7 @@
   "src": [
     "pages/Index",
     "pages/ListPage",
-    "pages/LazyListPage"
+    "pages/LazyListPage",
+    "pages/GridPage"
   ]
 }
