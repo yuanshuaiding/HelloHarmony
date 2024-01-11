@@ -76,6 +76,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "uiDemo",
+      "srcPath": "./uiDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

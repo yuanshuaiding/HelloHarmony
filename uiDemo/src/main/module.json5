@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "uiDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "UiDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "UiDemoAbility",
+        "srcEntry": "./ets/uidemoability/UiDemoAbility.ts",
+        "description": "$string:UiDemoAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:UiDemoAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
