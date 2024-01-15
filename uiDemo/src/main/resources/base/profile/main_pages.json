@@ -3,6 +3,7 @@
     "pages/Index",
     "pages/ListPage",
     "pages/LazyListPage",
-    "pages/GridPage"
+    "pages/GridPage",
+    "pages/TabPage1"
   ]
 }

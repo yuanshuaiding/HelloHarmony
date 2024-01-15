@@ -39,6 +39,22 @@ struct Index {
             url: "pages/GridPage"
           })
         })
+
+        Button('页签控件Tab').margin({
+          top: '15vp'
+        }).onClick(() => {
+          router.pushUrl({
+            url: "pages/TabPage1"
+          })
+        })
+
+        Button('页签控件Tab(自定义)').margin({
+          top: '15vp'
+        }).onClick(() => {
+          router.pushUrl({
+            url: "pages/TabPage2"
+          })
+        })
       }
       .width("100%")
       .height("100%")
