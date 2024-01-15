@@ -4,6 +4,7 @@
     "pages/ListPage",
     "pages/LazyListPage",
     "pages/GridPage",
-    "pages/TabPage1"
+    "pages/TabPage1",
+    "pages/TabPage2"
   ]
 }
