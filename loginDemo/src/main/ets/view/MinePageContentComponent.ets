@@ -37,13 +37,32 @@ export default struct MinePageContentComponent {
 
 @Component
 struct MinePageItemComponent {
+  @State private isExpand: boolean = false
   private itemTitle: Resource;
 
+  private getTitle(): string {
+    let title = getContext(this).resourceManager.getStringSync(this.itemTitle)
+    title = title.replace("%d", "    "+new Date().toTimeString())
+    return title
+  }
+
   build() {
-    Text(this.itemTitle)
-      .width(CommonConstants.MINE_PAGE_TEXT_WIDTH_PERCENT)
-      .height($r('app.float.item_text_height'))
-      .fontSize($r('app.float.item_text_font_size'))
-      .fontWeight(CommonConstants.TEXT_FONT_WEIGHT)
+    Column() {
+      Text(this.itemTitle)
+        .width(CommonConstants.MINE_PAGE_TEXT_WIDTH_PERCENT)
+        .height($r('app.float.item_text_height'))
+        .fontSize($r('app.float.item_text_font_size'))
+        .fontWeight(CommonConstants.TEXT_FONT_WEIGHT)
+        .onClick(() => {
+          this.isExpand = !this.isExpand
+        })
+      if (this.isExpand) {
+        Text(this.getTitle())
+          .width(CommonConstants.MINE_PAGE_TEXT_WIDTH_PERCENT)
+          .height($r('app.float.item_text_height'))
+          .fontSize($r('app.float.item_text_font_size'))
+          .fontWeight(CommonConstants.TEXT_FONT_WEIGHT)
+      }
+    }.width(CommonConstants.MINE_PAGE_TEXT_WIDTH_PERCENT)
   }
 }
