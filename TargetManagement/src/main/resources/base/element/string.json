@@ -1,0 +1,16 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "module description"
+    },
+    {
+      "name": "TargetManagementAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "TargetManagementAbility_label",
+      "value": "label"
+    }
+  ]
+}
