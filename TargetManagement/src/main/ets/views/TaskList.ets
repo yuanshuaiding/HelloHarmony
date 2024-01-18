@@ -8,6 +8,7 @@ export struct TaskList {
   @State isEdit: boolean = false
   onAdd?: () => void = null
   @Link items: Array<TaskItem>
+  @State clickIndex: number = -1
 
   build() {
     Column() {
@@ -45,7 +46,7 @@ export struct TaskList {
       List({ space: LIST_SPACE }) {
         ForEach(this.items, (item: TaskItem, index: number) => {
           ListItem() {
-            TaskListItem({ item: item })
+            TaskListItem({ item: item, clickIndex: $clickIndex, index: index })
           }
         }, (item: TaskItem, index: number) => index.toString())
 

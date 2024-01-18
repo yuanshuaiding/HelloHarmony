@@ -12,8 +12,16 @@ import ProgressEditPanel from './ProgressEditPanel'
 @Component
 export default struct TaskListItem {
   @State item?: TaskItem = null
+  @Link @Watch('onClickIndexChange') clickIndex: number
   @State sliderMode: number = SLIDER_MODE_DEFAULT
   @Consume allProgressChange: boolean
+  @State index: number = 0
+
+  onClickIndexChange() {
+    if (this.clickIndex != this.index) {
+      this.item.isExpand = false
+    }
+  }
 
   build() {
     Column() {
@@ -73,6 +81,7 @@ export default struct TaskListItem {
         return
       }
       this.item.isExpand = !this.item.isExpand
+      this.clickIndex = this.index
     })
   }
 }
