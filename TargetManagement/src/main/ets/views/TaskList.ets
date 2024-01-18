@@ -1,6 +1,7 @@
 // 工作目标主页，包含编辑，新增，删除等功能
 import { HEIGHT_FULL, LIST_SPACE, WIDTH_FULL } from '../common/Consts'
 import TaskItem from '../viewmodels/TaskItem'
+import TaskListItem from './TaskListItem'
 
 @Component
 export struct TaskList {
@@ -44,7 +45,7 @@ export struct TaskList {
       List({ space: LIST_SPACE }) {
         ForEach(this.items, (item: TaskItem, index: number) => {
           ListItem() {
-            this.Task(item, index, this.isEdit)
+            TaskListItem({ item: item })
           }
         }, (item: TaskItem, index: number) => index.toString())
 
@@ -56,7 +57,7 @@ export struct TaskList {
       if (this.isEdit) {
         Button('删除')
           .btnStyle('#ffe6365c')
-          .onClick(()=>{
+          .onClick(() => {
             //todo 删除选中的目标
           })
       } else {
@@ -69,40 +70,6 @@ export struct TaskList {
           })
       }
     }
-  }
-
-  @Builder Task(item: TaskItem, index: number, isEdit: boolean) {
-    Column() {
-      //内容部分
-      Row() {
-        Text(item.taskName)
-          .width('35%')
-          .maxLines(3)
-          .margin({ left: 10 })
-        Column() {
-          Text(`${item.progress}%`)
-            .fontSize(14)
-            .fontWeight(400)
-            .fontColor(Color.Black)
-
-          Text(`更新时间：${item.updateTime}`)
-            .fontSize(14)
-            .fontWeight(400)
-            .fontColor(Color.Black)
-        }
-        .margin({ right: 10 })
-        .alignItems(HorizontalAlign.End)
-      }
-      .justifyContent(FlexAlign.SpaceBetween)
-      .margin({ left: 10, right: 10 })
-      .width(WIDTH_FULL)
-
-      //展开的进度条部分
-    }
-    .margin({ left: 10, right: 10 })
-    .padding(5)
-    .border({ radius: 6 })
-    .backgroundColor(Color.White)
   }
 }
 
