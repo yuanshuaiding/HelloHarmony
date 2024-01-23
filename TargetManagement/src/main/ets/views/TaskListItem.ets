@@ -12,10 +12,12 @@ import ProgressEditPanel from './ProgressEditPanel'
 @Component
 export default struct TaskListItem {
   @State item?: TaskItem = null
-  @Link @Watch('onClickIndexChange') clickIndex: number
-  @State sliderMode: number = SLIDER_MODE_DEFAULT
-  @Consume allProgressChange: boolean
   @State index: number = 0
+  @State sliderMode: number = SLIDER_MODE_DEFAULT
+  @Prop isEdit: boolean
+  @Link selectStateArr: Array<boolean>
+  @Link @Watch('onClickIndexChange') clickIndex: number
+  @Consume allProgressChange: boolean
 
   onClickIndexChange() {
     if (this.clickIndex != this.index) {
@@ -44,13 +46,24 @@ export default struct TaskListItem {
         }
         .margin({ right: 10 })
         .alignItems(HorizontalAlign.End)
+
+        if (this.isEdit) {
+          Checkbox()
+            .select(this.selectStateArr[this.index])
+            .selectedColor(Color.Green)
+            .width(20)
+            .margin({ right: 10 })
+            .onClick(() => {
+              this.selectStateArr[this.index]=!this.selectStateArr[this.index]
+            })
+        }
       }
       .justifyContent(FlexAlign.SpaceBetween)
       .margin({ left: 10, right: 10 })
       .width(WIDTH_FULL)
 
       //展开的进度条部分
-      if (this.item?.isExpand) {
+      if (!this.isEdit && this.item?.isExpand) {
         ProgressEditPanel({
           slidingProgress: this.item.progress,
           onCancel: () => this.item.isExpand = false,
@@ -74,8 +87,12 @@ export default struct TaskListItem {
     .margin({ left: 10, right: 10 })
     .padding(5)
     .border({ radius: 6 })
-    .backgroundColor(Color.White)
+    .backgroundColor(this.isEdit ? "#fafafa" : Color.White)
     .onClick(() => {
+      if (this.isEdit) {
+        this.selectStateArr[this.index]=!this.selectStateArr[this.index]
+        return
+      }
       if (this.sliderMode === SLIDER_MODE_CLICK) {
         this.sliderMode = SLIDER_MODE_DEFAULT
         return

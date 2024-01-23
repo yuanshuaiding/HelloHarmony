@@ -1,14 +1,38 @@
 // 工作目标主页，包含编辑，新增，删除等功能
-import { HEIGHT_FULL, LIST_SPACE, WIDTH_FULL } from '../common/Consts'
+import promptAction from '@ohos.promptAction'
+import { LIST_SPACE, WIDTH_FULL } from '../common/Consts'
 import TaskItem from '../viewmodels/TaskItem'
 import TaskListItem from './TaskListItem'
 
 @Component
 export struct TaskList {
   @State isEdit: boolean = false
-  onAdd?: () => void = null
-  @Link items: Array<TaskItem>
   @State clickIndex: number = -1
+  @State isSelectAll: boolean = false
+  @State selectStateArr: Array<boolean> = []
+  @Link items: Array<TaskItem>
+  onAdd?: () => void = null
+  onDelete?: (arr: Array<boolean>) => void = null
+
+  selectAll(selected: boolean) {
+    let newArr: Array<boolean> = []
+    this.items.forEach(() => {
+      newArr.push(selected)
+    })
+    this.selectStateArr = newArr
+  }
+
+  hasSelectedTask(): boolean {
+    let hasSelect = false
+    let index = 0
+    for (index = 0; index < this.selectStateArr.length; index++) {
+      if (this.selectStateArr[index]) {
+        hasSelect = true
+        break
+      }
+    }
+    return hasSelect
+  }
 
   build() {
     Column() {
@@ -22,19 +46,27 @@ export struct TaskList {
           if (this.isEdit) {
             Text('取消')
               .onClick(() => {
+                this.isSelectAll = false
                 this.isEdit = false
+                this.selectAll(false)
               })
             Text('全选')
               .margin({ left: 10 })
             Checkbox()
-              .onChange((checked) => {
-                //todo 全选
+              .select(this.isSelectAll)
+              .selectedColor(Color.Red)
+              .onClick(() => {
+                //全选
+                this.isSelectAll = !this.isSelectAll
+                this.selectAll(this.isSelectAll)
               })
+              .width(22)
               .margin({ left: 5 })
           } else {
             Text('编辑')
               .onClick(() => {
                 this.isEdit = true
+                this.selectAll(false)
               })
           }
         }
@@ -46,20 +78,37 @@ export struct TaskList {
       List({ space: LIST_SPACE }) {
         ForEach(this.items, (item: TaskItem, index: number) => {
           ListItem() {
-            TaskListItem({ item: item, clickIndex: $clickIndex, index: index })
+            TaskListItem({
+              item: item,
+              clickIndex: $clickIndex,
+              index: index,
+              isEdit: this.isEdit,
+              selectStateArr: $selectStateArr
+            })
           }
-        }, (item: TaskItem, index: number) => index.toString())
+        }, (item: TaskItem) => JSON.stringify(item))
 
       }
       .margin({ top: LIST_SPACE })
       .width(WIDTH_FULL)
-      .height('75%')
+      .height('70%')
       //添加、删除按钮
       if (this.isEdit) {
         Button('删除')
           .btnStyle('#ffe6365c')
+          .enabled(this.hasSelectedTask())
           .onClick(() => {
-            //todo 删除选中的目标
+            //删除选中的目标
+            if (!this.hasSelectedTask()) {
+              promptAction.showToast({ message: '请选中要删除的任务！' })
+            } else {
+              if (this.onDelete) {
+                this.onDelete(this.selectStateArr)
+                this.selectAll(false)
+                this.isSelectAll = false
+                this.isEdit = false
+              }
+            }
           })
       } else {
         Button('新增')

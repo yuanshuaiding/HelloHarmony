@@ -16,8 +16,15 @@ class DataViewModel {
     this.datas.push(new TaskItem(name, getCurrentTime(), 0))
   }
 
-  deleteAll(){
-    this.datas=[]
+  deleteData(arr: Array<boolean>) {
+    let newData:Array<TaskItem>=[]
+    for (let index = 0; index < arr.length; index++) {
+      const selected = arr[index];
+      if(selected!==true){
+        newData.push(this.datas[index])
+      }
+    }
+    this.datas = newData
   }
 }
 

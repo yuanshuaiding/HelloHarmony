@@ -46,6 +46,12 @@ struct Index {
     this.dialog.close()
   }
 
+  deleteTask(arr:Array<boolean>){
+    viewModel.deleteData(arr)
+    this.taskItems = viewModel.getData()
+    this.allProgressChange = !this.allProgressChange
+  }
+
   build() {
     Column() {
       this.titleBar('工作目标')
@@ -55,9 +61,13 @@ struct Index {
         latestUpdateTime: this.latestUpdateTime
       })
 
-      TaskList({ items: $taskItems, onAdd: () => {
-        this.dialog.open()
-      } })
+      TaskList({ items: $taskItems,
+        onAdd: () => {
+          this.dialog.open()
+        },
+        onDelete: (arr: Array<boolean>) => {
+          this.deleteTask(arr)
+        } })
     }
     .alignItems(HorizontalAlign.Start)
     .width('100%')

@@ -21,7 +21,7 @@ export default struct SummaryInfo {
         Progress({ value: this.finishedTaskNum, total: this.totalTaskNum, type: ProgressType.Ring })
           .color(Color.Green)
           .style({ strokeWidth: 2 })
-          .backgroundColor(Color.Black)
+          .backgroundColor(Color.Red)
           .width(50)
           .height(50)
         // 文本
