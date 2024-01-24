@@ -1,0 +1,32 @@
+{
+  "module": {
+    "name": "videoPlayer",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "VideoPlayerAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "requestPermissions": [
+      {
+        "name": "ohos.permission.INTERNET"
+      }
+    ],
+    "abilities": [
+      {
+        "name": "VideoPlayerAbility",
+        "srcEntry": "./ets/videoplayerability/VideoPlayerAbility.ts",
+        "description": "$string:VideoPlayerAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:VideoPlayerAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

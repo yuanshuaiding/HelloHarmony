@@ -1,0 +1,6 @@
+{
+  "src": [
+    "pages/VideoPlayerIndex",
+    "pages/VideoPlay"
+  ]
+}
