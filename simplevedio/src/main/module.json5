@@ -1,6 +1,6 @@
 {
   "module": {
-    "name": "videoPlayer",
+    "name": "simplevedio",
     "type": "feature",
     "description": "$string:module_desc",
     "mainElement": "VideoPlayerAbility",

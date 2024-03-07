@@ -1,4 +1,4 @@
-import { getCurrentTime } from '../common/Utils'
+import { getCurrentTime } from '../utils/Utils'
 import TaskItem from './TaskItem'
 
 class DataViewModel {

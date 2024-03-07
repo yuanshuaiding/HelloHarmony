@@ -1,10 +1,11 @@
 {
-  "name": "videoplayer",
+  "name": "simplevedio",
   "version": "1.0.0",
   "description": "Please describe the basic information.",
   "main": "",
   "author": "",
   "license": "",
-  "dependencies": {}
+  "dependencies": {
+    "@ohos/libCommon": "file:../libCommon"
+  }
 }
-

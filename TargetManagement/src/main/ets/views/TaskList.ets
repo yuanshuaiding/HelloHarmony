@@ -1,6 +1,6 @@
 // 工作目标主页，包含编辑，新增，删除等功能
 import promptAction from '@ohos.promptAction'
-import { LIST_SPACE, WIDTH_FULL } from '../common/Consts'
+import { LIST_SPACE, WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts'
 import TaskItem from '../viewmodels/TaskItem'
 import TaskListItem from './TaskListItem'
 

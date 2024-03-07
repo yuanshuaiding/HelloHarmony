@@ -1,4 +1,4 @@
-import { WIDTH_FULL } from '../common/Consts';
+import { WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts';
 
 @CustomDialog
 export default struct AddTaskDialog {

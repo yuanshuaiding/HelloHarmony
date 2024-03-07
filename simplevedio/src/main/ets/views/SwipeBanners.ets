@@ -24,7 +24,6 @@ export default struct SwipeBanners {
       .autoPlay(true)
       .interval(3000)
       .indicatorStyle({color:Color.Gray,selectedColor:Color.Orange})
-      .margin({ top: 20, left: 15, right: 15 })
       .height('100%')
     }
     .width('100%')

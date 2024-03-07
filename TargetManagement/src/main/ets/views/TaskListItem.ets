@@ -3,11 +3,11 @@ import {
   SLIDER_MODE_DEFAULT,
   TRANSITION_ANIMATION_X,
   TRANSITION_ANIMATION_Y,
-  WIDTH_FULL
-} from '../common/Consts'
-import { getCurrentTime } from '../common/Utils'
+} from '../utils/Consts'
+import { getCurrentTime } from '../utils/Utils'
 import TaskItem from '../viewmodels/TaskItem'
 import ProgressEditPanel from './ProgressEditPanel'
+import { WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts'
 
 @Component
 export default struct TaskListItem {
@@ -54,7 +54,7 @@ export default struct TaskListItem {
             .width(20)
             .margin({ right: 10 })
             .onClick(() => {
-              this.selectStateArr[this.index]=!this.selectStateArr[this.index]
+              this.selectStateArr[this.index] = !this.selectStateArr[this.index]
             })
         }
       }
@@ -90,7 +90,7 @@ export default struct TaskListItem {
     .backgroundColor(this.isEdit ? "#fafafa" : Color.White)
     .onClick(() => {
       if (this.isEdit) {
-        this.selectStateArr[this.index]=!this.selectStateArr[this.index]
+        this.selectStateArr[this.index] = !this.selectStateArr[this.index]
         return
       }
       if (this.sliderMode === SLIDER_MODE_CLICK) {

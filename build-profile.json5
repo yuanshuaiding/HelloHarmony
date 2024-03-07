@@ -102,8 +102,20 @@
       ]
     },
     {
-      "name": "videoPlayer",
-      "srcPath": "./videoPlayer",
+      "name": "simplevedio",
+      "srcPath": "./simplevedio",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
+    },
+    {
+      "name": "libCommon",
+      "srcPath": "./libCommon",
       "targets": [
         {
           "name": "default",

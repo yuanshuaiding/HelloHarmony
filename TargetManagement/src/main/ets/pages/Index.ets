@@ -1,4 +1,4 @@
-import { getCurrentTime } from '../common/Utils'
+import { getCurrentTime } from '../utils/Utils'
 import { viewModel } from '../viewmodels/DataViewModel'
 import TaskItem from '../viewmodels/TaskItem'
 import AddTaskDialog from '../views/AddTaskDialog'
