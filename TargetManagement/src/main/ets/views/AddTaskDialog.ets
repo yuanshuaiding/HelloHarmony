@@ -1,4 +1,4 @@
-import { WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts';
+import { ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts';
 
 @CustomDialog
 export default struct AddTaskDialog {
@@ -9,7 +9,7 @@ export default struct AddTaskDialog {
   build() {
     Column() {
       Text('新建目标')
-        .width(WIDTH_FULL)
+        .width(ALL_PERCENT)
         .fontSize(16)
         .fontWeight(500)
         .fontColor(Color.Black)
@@ -19,7 +19,7 @@ export default struct AddTaskDialog {
         .placeholderFont({ size: 14 })
         .caretColor(Color.Blue)
         .backgroundColor("#aaccdd")
-        .width(WIDTH_FULL)
+        .width(ALL_PERCENT)
         .height(40)
         .margin({ top: 10 })
         .fontSize(14)

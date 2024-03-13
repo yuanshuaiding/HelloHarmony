@@ -1,4 +1,4 @@
-import { WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts'
+import { ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts'
 
 @Component
 export default struct ProgressEditPanel {
@@ -55,7 +55,7 @@ export default struct ProgressEditPanel {
       .justifyContent(FlexAlign.SpaceBetween)
     }
     .height(100)
-    .width(WIDTH_FULL)
+    .width(ALL_PERCENT)
     .justifyContent(FlexAlign.End)
   }
 }

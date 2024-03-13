@@ -7,7 +7,7 @@ import {
 import { getCurrentTime } from '../utils/Utils'
 import TaskItem from '../viewmodels/TaskItem'
 import ProgressEditPanel from './ProgressEditPanel'
-import { WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts'
+import { ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts'
 
 @Component
 export default struct TaskListItem {
@@ -60,7 +60,7 @@ export default struct TaskListItem {
       }
       .justifyContent(FlexAlign.SpaceBetween)
       .margin({ left: 10, right: 10 })
-      .width(WIDTH_FULL)
+      .width(ALL_PERCENT)
 
       //展开的进度条部分
       if (!this.isEdit && this.item?.isExpand) {

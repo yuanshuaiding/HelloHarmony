@@ -1,7 +1,7 @@
 import SwipeBanners from '../views/SwipeBanners'
 import { vm } from '../viewmodels/VideosViewModel'
 import { VideoBean } from '../beans/VedioBean'
-import { WIDTH_FULL } from '@ohos/libCommon'
+import { ALL_PERCENT } from '@ohos/libCommon'
 import { VideoModuleBean } from '../beans/VideoModuleBean'
 import router from '@ohos.router'
 import { PAGE_PLAY } from '../common/Consts'
@@ -25,8 +25,8 @@ struct VideoPlayerIndex {
           }
         })
       }
-      .width(WIDTH_FULL)
-      .height(WIDTH_FULL)
+      .width(ALL_PERCENT)
+      .height(ALL_PERCENT)
 
     }
   }
@@ -40,14 +40,14 @@ struct VideoModuleItem {
     Column() {
       Text(this.module.name)
         .textAlign(TextAlign.Start)
-        .width(WIDTH_FULL)
+        .width(ALL_PERCENT)
       List({ space: 10 }) {
         ForEach(this.module.videos, item => {
           ListItem() {
             VideoCardItem({ item })
           }
         })
-      }.width(WIDTH_FULL)
+      }.width(ALL_PERCENT)
       .height(110)
       .listDirection(Axis.Horizontal)
     }

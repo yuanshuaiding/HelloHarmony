@@ -1,6 +1,6 @@
 // 工作目标主页，包含编辑，新增，删除等功能
 import promptAction from '@ohos.promptAction'
-import { LIST_SPACE, WIDTH_FULL } from 'libCommon/src/main/ets/common/Consts'
+import { LIST_SPACE, ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts'
 import TaskItem from '../viewmodels/TaskItem'
 import TaskListItem from './TaskListItem'
 
@@ -73,7 +73,7 @@ export struct TaskList {
 
       }
       .padding({ top: 15, left: 10, right: 10 })
-      .width(WIDTH_FULL)
+      .width(ALL_PERCENT)
       //目标列表
       List({ space: LIST_SPACE }) {
         ForEach(this.items, (item: TaskItem, index: number) => {
@@ -90,7 +90,7 @@ export struct TaskList {
 
       }
       .margin({ top: LIST_SPACE })
-      .width(WIDTH_FULL)
+      .width(ALL_PERCENT)
       .height('70%')
       //添加、删除按钮
       if (this.isEdit) {
