@@ -1,0 +1,1 @@
+export const PAGE_PLAY="pages/VideoPlay"
