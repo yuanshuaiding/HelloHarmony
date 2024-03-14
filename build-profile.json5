@@ -124,6 +124,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "dialogDemo",
+      "srcPath": "./dialogDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }

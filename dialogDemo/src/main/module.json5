@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "dialogDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "DialogDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "DialogDemoAbility",
+        "srcEntry": "./ets/dialogdemoability/DialogDemoAbility.ts",
+        "description": "$string:DialogDemoAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:DialogDemoAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}
