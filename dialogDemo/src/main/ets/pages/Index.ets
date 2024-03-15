@@ -2,6 +2,9 @@
 @Component
 struct Index {
   @State message: string = 'Dialog示例'
+  @State selected: number = 0
+  selectedDate: Date = new Date('2010-1-1')
+  selectedTime: Date = new Date()
 
   build() {
     Row() {
@@ -40,24 +43,91 @@ struct Index {
             )
           })
         Button('点击显示弹框（单确认按钮）')
-          .onClick(()=>{
+          .onClick(() => {
             AlertDialog.show({
-              message:"你好！",
-              autoCancel:true,
-              confirm:{
-                value:"我知道了",
-                action:()=>{
+              message: "你好！",
+              autoCancel: true,
+              confirm: {
+                value: "我知道了",
+                action: () => {
                   console.info('Callback when confirm button is clicked')
                 }
               },
-              cancel:()=>{
+              cancel: () => {
                 console.info('Closed callbacks')
               }
             })
           })
+          .margin({ top: 15 })
 
         //选择类弹框：文本选择弹窗TextPickerDialog
+        Button('文本选择弹框')
+          .margin({ top: 15 })
+          .onClick(() => {
+            TextPickerDialog.show({
+              range: ["男", "女", "不限"],
+              selected: this.selected,
+              // 点击弹窗中的“确定”按钮时触发该回调。
+              // 设置select为按下确定按钮时候的选中项index，这样当弹窗再次弹出时显示选中的是上一次确定的选项
+              onAccept: (value: TextPickerResult) => {
+                this.selected = value.index
+                console.info("TextPickerDialog:onAccept()" + JSON.stringify(value));
+              },
+              // 滑动弹窗中的选择器使当前选中项改变时触发该回调。
+              onChange: (value: TextPickerResult) => {
+                console.info('TextPickerDialog:onChange()' + JSON.stringify(value));
+              },
+              // 点击弹窗中的“取消”按钮时触发该回调。
+              onCancel: () => {
+                console.info("TextPickerDialog:onCancel()");
+              }
+            })
+          })
+        //选择类弹框：日期选择弹窗DatePickerDialog
+        Button('日期选择弹框')
+          .margin({ top: 15 })
+          .onClick(() => {
+            DatePickerDialog.show({
+              start: new Date('1900-1-1'),
+              end: new Date('2024-12-31'),
+              lunar: false,
+              selected: this.selectedDate,
+              onChange: (value) => {
+                console.info('DatePickerDialog:onChange()' + JSON.stringify(value))
+              },
+              // 点击弹窗中的“确定”按钮时触发该回调
+              onAccept: (value) => {
+                // 通过Date的setFullYear方法设置按下确定按钮时的日期，这样当弹窗再次弹出时显示选中的是上一次确定的日期
+                this.selectedDate.setFullYear(value.year, value.month, value.day)
+                console.info('DatePickerDialog:onAccept()' + JSON.stringify(value))
+              },
+              // 点击弹窗中的“取消”按钮时触发该回调
+              onCancel: () => {
+                console.info('DatePickerDialog:onCancel()')
+              }
+            })
+          })
 
+        Button('时间选择弹框')
+          .margin(15)
+          .onClick(() => {
+            TimePickerDialog.show({
+              useMilitaryTime: true,
+              selected: this.selectedTime,
+              onChange: (value) => {
+                console.info('TimePickerDialog:onChange()' + JSON.stringify(value))
+              },
+              // 点击弹窗中的“确定”按钮时触发该回调
+              onAccept: (value) => {
+                this.selectedTime.setHours(value.hour, value.minute)
+                console.info('TimePickerDialog:onAccept()' + JSON.stringify(value))
+              },
+              // 点击弹窗中的“取消”按钮时触发该回调
+              onCancel: () => {
+                console.info('TimePickerDialog:onCancel()')
+              }
+            })
+          })
       }
       .justifyContent(FlexAlign.Start)
       .width('100%')
