@@ -1,0 +1,21 @@
+{
+  "strarray": [
+    {
+      "name": "hobbies_data",
+      "value": [
+        {
+          "value": "Football"
+        },
+        {
+          "value": "Basketball"
+        },
+        {
+          "value": "Swimming"
+        },
+        {
+          "value": "Travelling"
+        }
+      ]
+    }
+  ]
+}

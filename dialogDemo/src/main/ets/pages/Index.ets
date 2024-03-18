@@ -1,3 +1,6 @@
+import { HobbyBean } from '../beans/HobbyBean'
+import { ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts';
+
 @Entry
 @Component
 struct Index {
@@ -5,6 +8,16 @@ struct Index {
   @State selected: number = 0
   selectedDate: Date = new Date('2010-1-1')
   selectedTime: Date = new Date()
+  //自定义Dialog
+  @State hobbies: string = ''
+  private myDialogController: CustomDialogController = new CustomDialogController({
+    builder: MyDialog({
+      hobbies: $hobbies,
+    }),
+    customStyle: true,
+    alignment: DialogAlignment.Bottom,
+    offset: { dx: 0, dy: -20 }
+  })
 
   build() {
     Row() {
@@ -108,6 +121,7 @@ struct Index {
             })
           })
 
+        //选择类弹框：时间选择弹框TimePickerDialog
         Button('时间选择弹框')
           .margin(15)
           .onClick(() => {
@@ -128,10 +142,79 @@ struct Index {
               }
             })
           })
+
+        //自定义弹框：@CustomDialog
+        Button('自定义弹框>>' + this.hobbies)
+          .margin(15)
+          .onClick(() => {
+            this.myDialogController?.open()
+          })
+
       }
       .justifyContent(FlexAlign.Start)
       .width('100%')
     }
     .height('100%')
+  }
+}
+
+@CustomDialog
+struct MyDialog {
+  @State hobbyBeans: HobbyBean[] = []
+  @Link hobbies: string
+  controller: CustomDialogController
+
+  aboutToAppear() {
+    let rm = getContext(this).resourceManager
+    rm.getStringArrayValue($r('app.strarray.hobbies_data'), (_, hobbies) => {
+      hobbies.forEach((hobby: string) => {
+        this.hobbyBeans.push(new HobbyBean(hobby, this.hobbies.indexOf(hobby)>=0))
+      })
+    })
+  }
+
+  setHobbiesValue() {
+    let hobbiesText: string = '';
+    hobbiesText = this.hobbyBeans.filter((isCheckItem: HobbyBean) => isCheckItem?.selected)
+      .map((checkedItem: HobbyBean) => {
+        return checkedItem.label;
+      }).join(',');
+    this.hobbies = hobbiesText;
+  }
+
+  build() {
+    Column() {
+      Text('兴趣爱好')
+      List({ space: 10 }) {
+        ForEach(this.hobbyBeans, (item: HobbyBean) => {
+          ListItem() {
+            Row() {
+              Text(item.label)
+                .layoutWeight(1)
+              Checkbox().select(item.selected).onChange(value => {
+                item.selected = value
+              })
+            }
+          }
+        }, (item: HobbyBean) => item.label)
+      }.width(ALL_PERCENT)
+
+      Row() {
+        Button('取消')
+          .onClick(() => {
+            this.controller?.close()
+          })
+
+        Button('确定')
+          .onClick(() => {
+            this.setHobbiesValue()
+            this.controller?.close()
+          })
+      }
+    }
+    .backgroundColor(Color.White)
+    .margin(15)
+    .padding(10)
+
   }
 }
