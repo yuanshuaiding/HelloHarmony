@@ -1,0 +1,27 @@
+{
+  "module": {
+    "name": "animationDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "AnimationDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "abilities": [
+      {
+        "name": "AnimationDemoAbility",
+        "srcEntry": "./ets/animationdemoability/AnimationDemoAbility.ts",
+        "description": "$string:AnimationDemoAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:AnimationDemoAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

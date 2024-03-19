@@ -136,6 +136,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "animationDemo",
+      "srcPath": "./animationDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }
