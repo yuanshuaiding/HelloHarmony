@@ -1,4 +1,6 @@
 import { ALL_PERCENT } from 'libCommon/src/main/ets/common/Consts'
+import router from '@ohos.router'
+import { PAGE_PULL_REFRESH } from '../common/Consts'
 
 @Entry
 @Component
@@ -11,6 +13,17 @@ struct Index {
           .fontWeight(FontWeight.Bold)
 
         AnimWidget()
+
+        //自定义下拉加载效果
+        Button('自定义下拉刷新')
+          .borderColor(Color.Red)
+          .fontColor(Color.Black)
+          .backgroundColor(Color.Gray)
+          .onClick(() => {
+            router.pushUrl({
+              url: PAGE_PULL_REFRESH
+            }, router.RouterMode.Standard)
+          })
       }
       .width('100%')
     }

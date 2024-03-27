@@ -14,7 +14,7 @@
     "abilities": [
       {
         "name": "AnimationDemoAbility",
-        "srcEntry": "./ets/animationdemoability/AnimationDemoAbility.ts",
+        "srcEntry": "./ets/animationdemoability/AnimationDemoAbility.ets",
         "description": "$string:AnimationDemoAbility_desc",
         "icon": "$media:icon",
         "label": "$string:AnimationDemoAbility_label",

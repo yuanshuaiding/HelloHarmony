@@ -1,6 +1,8 @@
 import UIAbility from '@ohos.app.ability.UIAbility';
 import hilog from '@ohos.hilog';
 import window from '@ohos.window';
+import display from '@ohos.display';
+import GlobalContext from '../../../../../libCommon/src/main/ets/common/GlobalContext'
 
 export default class AnimationDemoAbility extends UIAbility {
   onCreate(want, launchParam) {
@@ -14,7 +16,8 @@ export default class AnimationDemoAbility extends UIAbility {
   onWindowStageCreate(windowStage: window.WindowStage) {
     // Main window is created, set main page for this ability
     hilog.info(0x0000, 'testTag', '%{public}s', 'Ability onWindowStageCreate');
-
+    // 获取屏幕尺寸并关联至全局变量
+    GlobalContext.getContext().setDisplay(display.getDefaultDisplaySync())
     windowStage.loadContent('pages/Index', (err, data) => {
       if (err.code) {
         hilog.error(0x0000, 'testTag', 'Failed to load the content. Cause: %{public}s', JSON.stringify(err) ?? '');
