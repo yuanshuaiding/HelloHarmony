@@ -1,0 +1,32 @@
+{
+  "module": {
+    "name": "networkDemo",
+    "type": "feature",
+    "description": "$string:module_desc",
+    "mainElement": "NetworkDemoAbility",
+    "deviceTypes": [
+      "phone",
+      "tablet"
+    ],
+    "deliveryWithInstall": true,
+    "installationFree": false,
+    "pages": "$profile:main_pages",
+    "requestPermissions": [
+      {
+        'name': 'ohos.permission.INTERNET'
+      }
+    ],
+    "abilities": [
+      {
+        "name": "NetworkDemoAbility",
+        "srcEntry": "./ets/networkdemoability/NetworkDemoAbility.ts",
+        "description": "$string:NetworkDemoAbility_desc",
+        "icon": "$media:icon",
+        "label": "$string:NetworkDemoAbility_label",
+        "startWindowIcon": "$media:icon",
+        "startWindowBackground": "$color:start_window_background",
+        "exported": true
+      }
+    ]
+  }
+}

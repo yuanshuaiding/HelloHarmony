@@ -1,0 +1,20 @@
+{
+  "string": [
+    {
+      "name": "module_desc",
+      "value": "模块描述"
+    },
+    {
+      "name": "NetworkDemoAbility_desc",
+      "value": "description"
+    },
+    {
+      "name": "NetworkDemoAbility_label",
+      "value": "label"
+    },
+    {
+      "name": "huawei",
+      "value": "https://developer.huawei.com/"
+    }
+  ]
+}

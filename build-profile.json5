@@ -148,6 +148,18 @@
           ]
         }
       ]
+    },
+    {
+      "name": "networkDemo",
+      "srcPath": "./networkDemo",
+      "targets": [
+        {
+          "name": "default",
+          "applyToProducts": [
+            "default"
+          ]
+        }
+      ]
     }
   ]
 }
